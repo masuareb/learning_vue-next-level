@@ -1,4 +1,4 @@
-# learning_vuex
+# learning_vue-next-level
 
 ## Project setup
 ```
