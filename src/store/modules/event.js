@@ -7,10 +7,7 @@ export const state = {
     totalEvents: 0
 }
 export const getters = {
-    catLength: state => {
-        return state.categories.length
-    },
-        getEventById: (state) => (id) => {
+    getEventById: state => id => {
         return state.events.find(event => event.id === id)
     }
 }
@@ -62,8 +59,8 @@ export const actions = {
                 dispatch('notification/add', notification, { root: true })
             })
     },
-    fetchEvent({ commit, dispatch }, id) {
-        var event = this.getters.getEventById(id)
+    fetchEvent({ commit, getters, dispatch }, id) {
+        var event = getters.getEventById(id)
         if (event) {
             commit('SET_EVENT', event)
         }
